@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8j51rjtws4d4"]
+
+[ext_resource type="Script" path="res://Player/Player.cs" id="1_0o03a"]
+[ext_resource type="Texture2D" uid="uid://clc6jj4w4h2si" path="res://Art/Player/character_idle.png" id="2_ustro"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ajkk3"]
+radius = 58.0
+height = 168.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_0o03a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 29)
+shape = SubResource("CapsuleShape2D_ajkk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ustro")
+hframes = 11
+vframes = 6

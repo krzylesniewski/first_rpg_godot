@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcabvg5oohdbu"]
+
+[ext_resource type="Texture2D" uid="uid://cvpadp4ut2gq7" path="res://Art/Env/bench_1.png" id="1_oqwhy"]
+[ext_resource type="Texture2D" uid="uid://4c3stalef0a2" path="res://Art/Env/house_1.png" id="2_y0oi8"]
+[ext_resource type="Texture2D" uid="uid://cngt1dx7gowuo" path="res://Art/Env/house_2.png" id="3_e3n64"]
+[ext_resource type="Texture2D" uid="uid://igmqptsjby68" path="res://Art/Env/house_3.png" id="4_sqdac"]
+[ext_resource type="Texture2D" uid="uid://b7mmbhace88yl" path="res://Art/Env/house_4.png" id="5_bjq35"]
+[ext_resource type="Texture2D" uid="uid://b8dg6yr81r6pf" path="res://Art/Env/house_5.png" id="6_d0oco"]
+[ext_resource type="Texture2D" uid="uid://dpvqhxfyl0k61" path="res://Art/Env/bush.png" id="8_01rjw"]
+[ext_resource type="PackedScene" uid="uid://c8j51rjtws4d4" path="res://Player/player.tscn" id="9_boowr"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bench1" type="Sprite2D" parent="."]
+position = Vector2(374, 257)
+texture = ExtResource("1_oqwhy")
+
+[node name="House1" type="Sprite2D" parent="."]
+position = Vector2(893, -368)
+texture = ExtResource("2_y0oi8")
+
+[node name="House2" type="Sprite2D" parent="."]
+position = Vector2(2012, 508)
+texture = ExtResource("3_e3n64")
+
+[node name="House3" type="Sprite2D" parent="."]
+position = Vector2(-970, -67)
+texture = ExtResource("4_sqdac")
+
+[node name="House4" type="Sprite2D" parent="."]
+position = Vector2(-889, 1084)
+texture = ExtResource("5_bjq35")
+
+[node name="House5" type="Sprite2D" parent="."]
+position = Vector2(894, 1421)
+texture = ExtResource("6_d0oco")
+
+[node name="Bush" type="Sprite2D" parent="."]
+position = Vector2(-1463, 3571)
+texture = ExtResource("8_01rjw")
+
+[node name="Player" parent="." instance=ExtResource("9_boowr")]
+position = Vector2(757, 396)
