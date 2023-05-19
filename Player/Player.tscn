@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8j51rjtws4d4"]
+[gd_scene load_steps=18 format=3 uid="uid://c8j51rjtws4d4"]
 
 [ext_resource type="Script" path="res://Player/Player.cs" id="1_0o03a"]
+[ext_resource type="Texture2D" uid="uid://c0my74pcqjf6w" path="res://Art/Player/world_player_shadow.png" id="2_2202q"]
 [ext_resource type="Texture2D" uid="uid://clc6jj4w4h2si" path="res://Art/Player/character_idle.png" id="2_ustro"]
 [ext_resource type="Texture2D" uid="uid://ctsujtdsnfuf0" path="res://Art/Player/character_run.png" id="3_l3pry"]
 [ext_resource type="Texture2D" uid="uid://coglbgujatt2w" path="res://Art/Player/character_walk.png" id="4_lslg1"]
@@ -215,8 +216,12 @@ _data = {
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0o03a")
 
+[node name="Sprite2D_shadow" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+scale = Vector2(0.380952, 0.729167)
+texture = ExtResource("2_2202q")
+
 [node name="Sprite2D_idle" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(0, -65)
 texture = ExtResource("2_ustro")
 hframes = 11
@@ -234,11 +239,13 @@ libraries = {
 
 [node name="Sprite2D_run" type="Sprite2D" parent="."]
 visible = false
+position = Vector2(0, -65)
 texture = ExtResource("3_l3pry")
 hframes = 11
 vframes = 3
 
 [node name="Sprite2D_walk" type="Sprite2D" parent="."]
+position = Vector2(0, -65)
 texture = ExtResource("4_lslg1")
 hframes = 11
 vframes = 4
