@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://wphy1dt51ym2"]
+
+[ext_resource type="Texture2D" uid="uid://cl7epwrihko6p" path="res://Art/Enemy/Zombie/character_zombie_sheetHD.png" id="1_wjrn0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd460"]
+atlas = ExtResource("1_wjrn0")
+region = Rect2(0, 0, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymer3"]
+atlas = ExtResource("1_wjrn0")
+region = Rect2(576, 512, 192, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ypxm8"]
+atlas = ExtResource("1_wjrn0")
+region = Rect2(960, 512, 192, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_18cuj"]
+animations = [{
+"frames": [{
+"duration": 8.0,
+"texture": SubResource("AtlasTexture_jd460")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymer3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ypxm8")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="ZombieEnemy" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_18cuj")
+animation = &"walk"

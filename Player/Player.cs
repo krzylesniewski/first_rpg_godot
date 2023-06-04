@@ -38,7 +38,6 @@ public partial class Player : CharacterBody2D
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down").Normalized();
 		if (direction != Vector2.Zero)
 		{
-			GD.Print(direction);
 			_animationTree.Set("parameters/idle/blend_position", direction);
 			_animationTree.Set("parameters/walk/blend_position", direction);
 
