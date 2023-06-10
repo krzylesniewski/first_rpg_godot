@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://ct780cv05lwmy"]
+
+[ext_resource type="Texture2D" uid="uid://dn624hdq11aov" path="res://Art/Env/barrel_3.png" id="1_eg3dk"]
+[ext_resource type="Script" path="res://Prefab/Env/barrel/barrel.cs" id="1_wbldw"]
+[ext_resource type="Texture2D" uid="uid://5is7gilp17m2" path="res://Art/Env/barrel_1.png" id="2_vtnvh"]
+[ext_resource type="Texture2D" uid="uid://dgfba831rb3jo" path="res://Art/Env/barrel_2.png" id="3_jkxhn"]
+[ext_resource type="Texture2D" uid="uid://cdgbfekpchdrt" path="res://GUI/Button.png" id="5_1mesg"]
+[ext_resource type="AudioStream" uid="uid://cdc0grj3ujl5u" path="res://Prefab/Env/barrel/02_chest_close_3.wav" id="6_p40u2"]
+[ext_resource type="AudioStream" uid="uid://dxej4r4rrjkhi" path="res://Prefab/Env/barrel/01_chest_open_3.wav" id="7_pstrg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s6gj3"]
+radius = 49.0
+height = 106.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_45h28"]
+radius = 128.141
+
+[node name="Barrel" type="StaticBody2D"]
+script = ExtResource("1_wbldw")
+
+[node name="Killed" type="Sprite2D" parent="."]
+position = Vector2(2, -46)
+texture = ExtResource("1_eg3dk")
+offset = Vector2(0, -5)
+
+[node name="Close" type="Sprite2D" parent="."]
+position = Vector2(2, -46)
+texture = ExtResource("2_vtnvh")
+
+[node name="Open" type="Sprite2D" parent="."]
+position = Vector2(2, -46)
+texture = ExtResource("3_jkxhn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -12)
+shape = SubResource("CapsuleShape2D_s6gj3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -23)
+shape = SubResource("CircleShape2D_45h28")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -72.0
+offset_top = -146.0
+offset_right = 84.0
+offset_bottom = -112.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_1mesg")
+region_rect = Rect2(5, 5, 83, 80)
+patch_margin_left = 28
+patch_margin_top = 26
+patch_margin_right = 29
+patch_margin_bottom = 24
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Press E to open"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_p40u2")
+
+[node name="OpenEffect" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -1)
+stream = ExtResource("7_pstrg")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnAreaBodyEntered"]
+[connection signal="body_exited" from="Area2D" to="." method="OnAreaBodyExited"]

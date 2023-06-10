@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv6a78aa12wgh"]
+
+[ext_resource type="Script" path="res://Prefab/Utils/interaction.cs" id="1_kpe7p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfjxa"]
+radius = 221.111
+
+[node name="Interaction" type="Area2D"]
+script = ExtResource("1_kpe7p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 256
+visibility_layer = 256
+shape = SubResource("CircleShape2D_vfjxa")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]
+[connection signal="body_exited" from="." to="." method="OnBodyExited"]
